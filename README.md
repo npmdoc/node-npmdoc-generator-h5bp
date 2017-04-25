@@ -1,6 +1,6 @@
 # npmdoc-generator-h5bp
 
-#### api documentation for  [generator-h5bp (v1.4.0)](https://github.com/h5bp/generator-h5bp#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-generator-h5bp.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-generator-h5bp) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-generator-h5bp.svg)](https://travis-ci.org/npmdoc/node-npmdoc-generator-h5bp)
+#### basic api documentation for  [generator-h5bp (v1.4.0)](https://github.com/h5bp/generator-h5bp#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-generator-h5bp.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-generator-h5bp) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-generator-h5bp.svg)](https://travis-ci.org/npmdoc/node-npmdoc-generator-h5bp)
 
 #### HTML5 Boilerplate generator
 
@@ -77,7 +77,8 @@
     "scripts": {
         "test": "mocha"
     },
-    "version": "1.4.0"
+    "version": "1.4.0",
+    "bin": {}
 }
 ```
 
