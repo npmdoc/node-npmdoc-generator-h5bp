@@ -788,7 +788,23 @@
 
   return child;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+'use strict';
+var path = require('path');
+var yeoman = require('yeoman-generator');
+var globby = require('globby');
+
+module.exports = yeoman.Base.<span class="apidocCodeKeywordSpan">extend</span>({
+	init: function () {
+		var cb = this.async();
+
+		this.sourceRoot(path.join(__dirname, 'templates', 'dist'));
+
+		this.prompt([{
+			type: 'confirm',
+...</pre></li>
     </ul>
 
 
@@ -1350,7 +1366,22 @@ archiver.pipe(output);
 
   return this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			this.directory('js');
+
+			globby.sync('*', {
+				cwd: this.sourceRoot(),
+				dot: true,
+				nodir: true
+			}).forEach(function (x) {
+				this.<span class="apidocCodeKeywordSpan">copy</span>(x);
+			}, this);
+
+			cb();
+		}.bind(this));
+	}
+});
+...</pre></li>
     </ul>
 
 
@@ -1471,7 +1502,23 @@ archiver.pipe(output);
     <li>description and source-code<pre class="apidocCodePre">function directory(source, destination, process) {
   return this._directory(source, destination, process);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		this.prompt([{
+			type: 'confirm',
+			name: 'docs',
+			message: 'Would you like docs included?',
+			default: false
+		}], function (props) {
+			if (props.docs) {
+				this.<span class="apidocCodeKeywordSpan">directory</span>('doc');
+			}
+
+			this.directory('css');
+			this.directory('img');
+			this.directory('js');
+
+			globby.sync('*', {
+...</pre></li>
     </ul>
 
 
@@ -1964,7 +2011,23 @@ archiver.pipe(output);
 
   return this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+module.exports = yeoman.Base.extend({
+	init: function () {
+		var cb = this.async();
+
+		this.sourceRoot(path.join(__dirname, 'templates', 'dist'));
+
+		this.<span class="apidocCodeKeywordSpan">prompt</span>([{
+			type: 'confirm',
+			name: 'docs',
+			message: 'Would you like docs included?',
+			default: false
+		}], function (props) {
+			if (props.docs) {
+				this.directory('doc');
+...</pre></li>
     </ul>
 
 
@@ -1980,7 +2043,22 @@ archiver.pipe(output);
   var contents = this.fs.read(this.templatePath(filepath), { raw: true });
   return contents.toString(encoding || 'utf8');
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    readStream.on('close', done);
+    readStream.on('error', done);
+    readStream.on('readable', function () {
+
+        // Read file until the string is found
+        // or the whole file has been read
+        while (matchFound !== true &amp;&amp;
+    (character = readStream.<span class="apidocCodeKeywordSpan">read</span>(1)) !== null) {
+
+if (character === string.charAt(matchedPositions)) {
+    matchedPositions += 1;
+} else {
+    matchedPositions = 0;
+}
+...</pre></li>
     </ul>
 
 
@@ -2443,7 +2521,23 @@ archiver.pipe(output);
 
   return this._sourceRoot;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var yeoman = require('yeoman-generator');
+var globby = require('globby');
+
+module.exports = yeoman.Base.extend({
+	init: function () {
+		var cb = this.async();
+
+		this.<span class="apidocCodeKeywordSpan">sourceRoot</span>(path.join(__dirname, 'templates', 'dist'));
+
+		this.prompt([{
+			type: 'confirm',
+			name: 'docs',
+			message: 'Would you like docs included?',
+			default: false
+		}], function (props) {
+...</pre></li>
     </ul>
 
 
@@ -2628,7 +2722,26 @@ archiver.pipe(output);
   this.fs.write(this.destinationPath(filepath), content);
   return this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    &lt;p class="browserupgrade"&gt;You are using an &lt;strong&gt;outdated&lt;/strong&gt; browser. Please
+ &lt;a href="http://browsehappy.com/"&gt;upgrade your browser&lt;/a&gt; to improve your experience.&lt;/p&gt;
+;
+&lt;![endif]--&gt;
+
+&lt;!-- Add your site or application content here --&gt;
+&lt;p&gt;Hello world! This is HTML5 Boilerplate.&lt;/p&gt;
+
+&lt;script src="https://code.jquery.com/jquery-1.12.0.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;window.jQuery || document.<span class="apidocCodeKeywordSpan">write</span>('&lt;script src="js/vendor
+/jquery-1.12.0.min.js"&gt;&lt;\/script&gt;')&lt;/script&gt;
+&lt;script src="js/plugins.js"&gt;&lt;/script&gt;
+&lt;script src="js/main.js"&gt;&lt;/script&gt;
+
+&lt;!-- Google Analytics: change UA-XXXXX-X to be your site's ID. --&gt;
+&lt;script&gt;
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+...</pre></li>
     </ul>
 
 
